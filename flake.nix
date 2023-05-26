@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of leonard";
+  description = "Personal Home Manager configuration";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
@@ -8,12 +8,18 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # TODO: add cmdtime-plugin
   };
 
   outputs = { nixpkgs, home-manager, ... }:
     let
+      zshCustomPlugins = [ ];
+      
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in {
       homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
