@@ -1,29 +1,4 @@
-{ config, pkgs, ... }:
-
 {
-  home = {
-    username = "leonard";
-    homeDirectory = "/home/leonard";
-    stateVersion = "22.11";
-    packages = with pkgs; [
-      vivaldi
-      libreoffice
-      nixpkgs-fmt
-      easytag
-      keepassxc
-      gnomeExtensions.appindicator
-      telegram-desktop
-
-      # TODO Upgrade to v 8.2.1
-      #ciscoPacketTracer8
-    ];
-
-    sessionVariables = {
-      EDITOR = "emacs";
-    };
-  };
-
-
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
@@ -121,10 +96,5 @@
         alias emacs="emacs -nw"
       '';
     };
-  };
-
-  # TODO: fix dropbox
-  services = {
-    dropbox.enable = false;
   };
 }
