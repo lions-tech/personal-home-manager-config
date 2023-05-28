@@ -11,15 +11,11 @@
       nixpkgs-fmt
       easytag
       keepassxc
+      gnomeExtensions.appindicator
+      telegram-desktop
 
       # TODO Upgrade to v 8.2.1
       #ciscoPacketTracer8
-
-      # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-      # (pkgs.writeShellScriptBin "my-hello" ''
-      #   echo "Hello, ${config.home.username}!"
-      # '')
     ];
 
     sessionVariables = {
@@ -27,8 +23,9 @@
     };
   };
 
-  # Let Home Manager install and manage itself.
+
   programs = {
+    # Let Home Manager install and manage itself.
     home-manager.enable = true;
 
     direnv.enable = true;
@@ -67,7 +64,7 @@
 
     git = {
       enable = true;
-      userName = "Leonard Mayer";
+      userName = "LionsTech";
       userEmail = "lionstech@vivaldi.net";
       aliases = {
         co = "checkout";
@@ -126,7 +123,8 @@
     };
   };
 
-  /*  services = {
-    dropbox.enable = true;
-  };*/
+  # TODO: fix dropbox
+  services = {
+    dropbox.enable = false;
+  };
 }
