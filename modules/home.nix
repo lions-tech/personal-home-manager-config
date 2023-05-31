@@ -11,7 +11,6 @@
       nixpkgs-fmt
       easytag
       keepassxc
-      gnomeExtensions.appindicator
       telegram-desktop
 
       # TODO Upgrade to v 8.2.1

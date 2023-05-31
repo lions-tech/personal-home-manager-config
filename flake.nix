@@ -15,10 +15,13 @@
     let
       zshCustomPlugins = [ ];
 
+      customOverlays = import ./overlays.nix;
+
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = [ customOverlays ];
       };
     in
     {

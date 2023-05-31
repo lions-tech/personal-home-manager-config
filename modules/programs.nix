@@ -68,6 +68,7 @@
         epkgs.magit
         epkgs.nixpkgs-fmt
         epkgs.org
+        epkgs.python
       ];
     };
 
