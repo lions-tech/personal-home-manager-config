@@ -1,6 +1,9 @@
 final: prev:
 
 {
+  ciscoPacketTracer8 = prev.callPackage ./pkgs/ciscoPacketTracer8 { };
+
+
   dropbox = prev.callPackage ./pkgs/dropbox/default.nix { };
 
   dropbox-cli = prev.dropbox-cli.overrideAttrs (old:

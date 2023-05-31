@@ -95,6 +95,7 @@
       };
       initExtra = ''
         alias emacs="emacs -nw"
+        neofetch
       '';
     };
   };

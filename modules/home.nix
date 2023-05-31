@@ -12,8 +12,7 @@
       easytag
       keepassxc
       telegram-desktop
-
-      # TODO Upgrade to v 8.2.1
+      neofetch
       #ciscoPacketTracer8
     ];
 
