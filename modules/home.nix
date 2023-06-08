@@ -14,6 +14,8 @@
       telegram-desktop
       neofetch
       #ciscoPacketTracer8
+      gimp
+      virtualbox
     ];
 
     sessionVariables = {
