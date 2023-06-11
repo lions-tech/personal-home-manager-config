@@ -49,6 +49,7 @@
       ignores = [ "nohup.out" "*~" "#*" ];
     };
 
+    # configure custom-safe-themes via HomeManager?
     emacs = {
       enable = true;
       extraConfig = ''

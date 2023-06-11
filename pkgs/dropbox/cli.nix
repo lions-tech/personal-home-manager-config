@@ -24,7 +24,7 @@ stdenv.mkDerivation {
 
   src = fetchurl {
     url = "https://linux.dropbox.com/packages/nautilus-dropbox-${version}.tar.bz2";
-    sha256 = "1jjc835n2j61d23kvygdb4n4jsrw33r9mbwxrm4fqin6x01l2w7k";
+    sha256 = "0asrvvjkjgwnfqlrzk7l8wfwlq2rw5dh6klnpygav9b6dlbi67sc";
   };
 
   strictDeps = true;
@@ -32,7 +32,7 @@ stdenv.mkDerivation {
   patches = [
     # Fix extension for Nautilus 43
     # https://github.com/dropbox/nautilus-dropbox/pull/105
-    ./nautilus-43.patch
+    #./nautilus-43.patch
 
     (substituteAll {
       src = ./fix-cli-paths.patch;
