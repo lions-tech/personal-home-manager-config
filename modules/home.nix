@@ -13,7 +13,7 @@
       keepassxc
       telegram-desktop
       neofetch
-      #ciscoPacketTracer8
+      ciscoPacketTracer8
       gimp
       virtualbox
     ];

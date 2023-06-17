@@ -22,6 +22,7 @@
 , nspr
 , nss
 , requireFile
+, wayland
 , xorg
 }:
 # TODO add libwayland dependencies
@@ -57,6 +58,7 @@ let
       makeWrapper
       nspr
       nss
+      wayland
     ] ++ (with xorg; [
       libICE
       libSM
