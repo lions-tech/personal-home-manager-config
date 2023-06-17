@@ -8,13 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # TODO: add cmdtime-plugin
+    # TODO: add appindicator via homemanager and enable it via homemanager https://wiki.gnome.org/Projects/GnomeShell/Extensions#Enabling_extensions
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager }:
     let
-      zshCustomPlugins = [ ];
-
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
