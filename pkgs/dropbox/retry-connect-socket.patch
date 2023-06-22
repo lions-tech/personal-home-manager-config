@@ -1,0 +1,39 @@
+From c88698f4d1d15ebe32543c524f59af485484a6b8 Mon Sep 17 00:00:00 2001
+From: LionsTech <lionstech@vivaldi.net>
+Date: Thu, 22 Jun 2023 11:18:31 +0200
+Subject: [PATCH 1/1] Wait for socket
+
+---
+ dropbox.in | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+
+diff --git a/dropbox.in b/dropbox.in
+index f32af78..33c9104 100755
+--- a/dropbox.in
++++ b/dropbox.in
+@@ -628,10 +628,18 @@ class DropboxCommand(object):
+     def __init__(self, timeout=5):
+         self.s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+         self.s.settimeout(timeout)
+-        try:
+-            self.s.connect(os.path.expanduser('~/.dropbox/command_socket'))
+-        except socket.error:
+-            raise DropboxCommand.CouldntConnectError()
++        wait_for = 10;
++        interval = 0.5;
++        for i in range(int(wait_for/interval)):
++            try:
++                self.s.connect(os.path.expanduser('~/.dropbox/command_socket'))
++                break;
++            except socket.error:
++                if (i == int(wait_for/interval) - 1):
++                    raise DropboxCommand.CouldntConnectError()
++                else:
++                    time.sleep(interval);
++
+         self.f = self.s.makefile("rw", 4096)
+ 
+     def close(self):
+-- 
+2.40.1
+

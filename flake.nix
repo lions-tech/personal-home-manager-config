@@ -2,13 +2,14 @@
   description = "Personal Home Manager configuration";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # TODO: add appindicator via homemanager and enable it via homemanager https://wiki.gnome.org/Projects/GnomeShell/Extensions#Enabling_extensions
+    # TODO: contribute fixes to nixpkgs and home-manager
+    # TODO: set vivaldi as default browser
   };
 
   outputs = { self, nixpkgs, home-manager }:
@@ -23,13 +24,7 @@
     {
       homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
         modules = import ./modules;
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
       };
     };
 }

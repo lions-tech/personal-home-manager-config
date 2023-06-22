@@ -7,6 +7,7 @@ assert lib.elem stdenv.hostPlatform.system platforms;
 # Dropbox client to bootstrap installation.
 # The client is self-updating, so the actual version may be newer.
 let
+  # updated the version
   version = "174.4.5852";
 
   arch = {
@@ -33,7 +34,10 @@ in
 buildFHSEnv {
   name = "dropbox";
 
-  targetPkgs = pkgs: with pkgs; with xorg; [
+  targetPkgs = pkgs: with pkgs; [
+    # fix systemd-coredumps
+    iproute2
+  ] ++ (with xorg; [
     libICE
     libSM
     libX11
@@ -61,12 +65,18 @@ buildFHSEnv {
     libxshmfence
     libpthreadstubs
     libappindicator
-  ];
+  ]);
 
   extraInstallCommands = ''
     mkdir -p "$out/share/applications"
     cp "${desktopItem}/share/applications/"* $out/share/applications
   '';
+
+  # dropbox-cli needs to know that we exist
+  unsharePid = false;
+
+  # we want to survive, if dropbox-cli starts us
+  dieWithParent = false;
 
   runScript = writeScript "install-and-start-dropbox" ''
     export BROWSER=firefox

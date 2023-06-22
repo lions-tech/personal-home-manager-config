@@ -13,6 +13,7 @@
 }:
 
 let
+  # we use the newer version
   version = "2022.12.05";
   dropboxd = "${dropbox}/bin/dropbox";
 in
@@ -30,6 +31,10 @@ stdenv.mkDerivation {
   strictDeps = true;
 
   patches = [
+    # first few connects might be refused for some reason
+    ./retry-connect-socket.patch
+
+    # Fixed in the newer version
     # Fix extension for Nautilus 43
     # https://github.com/dropbox/nautilus-dropbox/pull/105
     #./nautilus-43.patch
