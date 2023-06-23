@@ -19,7 +19,7 @@
     ];
 
     sessionVariables = {
-      EDITOR = "emacs";
+      EDITOR = "emacs -nw";
     };
   };
 }
