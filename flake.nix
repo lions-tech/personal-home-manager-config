@@ -9,7 +9,6 @@
     };
     # TODO: add appindicator via homemanager and enable it via homemanager https://wiki.gnome.org/Projects/GnomeShell/Extensions#Enabling_extensions
     # TODO: contribute fixes to nixpkgs and home-manager
-    # TODO: set vivaldi as default browser
   };
 
   outputs = { self, nixpkgs, home-manager }:
