@@ -7,7 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # TODO: add appindicator via homemanager and enable it via homemanager https://wiki.gnome.org/Projects/GnomeShell/Extensions#Enabling_extensions
     # TODO: contribute fixes to nixpkgs and home-manager
   };
 

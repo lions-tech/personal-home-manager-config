@@ -1,4 +1,5 @@
 { lib, pkgs, ... }:
+
 {
   dconf.settings = {
     "org/gnome/desktop/peripherals/touchpad" = {

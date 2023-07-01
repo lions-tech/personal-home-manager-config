@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 let
   defaultBrowsers = [ "vivaldi-stable.desktop" "firefox.desktop" ];
 in
