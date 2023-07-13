@@ -131,6 +131,9 @@ in
       "x-scheme-handler/https" = defaultBrowsers;
 
       "application/octet-stream" = "cisco-pt8.desktop.desktop";
+
+      "application/pdf" = "okularApplication_pdf.desktop";
+      "application/epub+zip" = "okularApplication_epub.desktop";
     };
     associations.added = {
       "application/octet-stream" = "cisco-pt8.desktop.desktop";

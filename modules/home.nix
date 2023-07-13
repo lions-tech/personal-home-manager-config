@@ -16,6 +16,7 @@
       ciscoPacketTracer8
       gimp
       virtualbox
+      libsForQt5.okular
     ];
 
     sessionVariables = {
