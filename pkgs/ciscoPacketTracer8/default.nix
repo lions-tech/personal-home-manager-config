@@ -25,7 +25,7 @@
 , wayland
 , xorg
 }:
-# TODO add libwayland dependencies
+
 let
   version = "8.2.1";
 
@@ -85,6 +85,8 @@ let
       chmod 755 "$out"
       makeWrapper "$out/opt/pt/bin/PacketTracer" "$out/bin/packettracer" \
         --prefix LD_LIBRARY_PATH : "$out/opt/pt/bin"
+
+      mv $out/opt/pt/translations $out/opt/pt/bin/translations
 
       # Keep source archive cached, to avoid re-downloading
       ln -s $src $out/usr/share/
