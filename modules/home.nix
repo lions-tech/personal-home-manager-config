@@ -6,16 +6,20 @@
     homeDirectory = "/home/leonard";
     stateVersion = "22.11";
     packages = with pkgs; [
-      vivaldi
-      libreoffice
-      nixpkgs-fmt
-      easytag
-      keepassxc
-      telegram-desktop
-      neofetch
       ciscoPacketTracer8
+      easytag
       gimp
+      keepassxc
+      libreoffice
+      neofetch
+      nixpkgs-fmt
+      telegram-desktop
       virtualbox
+      vivaldi
+
+      gnome.dconf-editor
+      gnome.gnome-system-monitor
+
       libsForQt5.okular
     ];
 
