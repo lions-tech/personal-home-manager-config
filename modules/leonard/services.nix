@@ -33,6 +33,30 @@
           ${pkgs.home-manager}/bin/home-manager switch --flake 'github:lions-tech/personal-home-manager-config#leonard'
         '')
       );
+
+      wallpaper-changer-gnome = {
+        Unit.Description = "Change wallpaper on GNOME";
+        Service.ExecStart = toString (pkgs.writeShellScript "wallpaper-changer-gnome-script" ''
+          file=$(${pkgs.findutils}/bin/find ${pkgs.wallpapers} -type f | ${pkgs.coreutils}/bin/shuf -n 1)
+          echo "$file"
+          ${pkgs.glib}/bin/gsettings set org.gnome.desktop.background picture-uri "$file"
+          ${pkgs.glib}/bin/gsettings set org.gnome.desktop.background picture-uri-dark "$file"
+        '');
+      };
+    };
+
+    timers = {
+      wallpaper-changer-gnome = {
+        Unit.Description = "Change wallpaper on GNOME timer";
+        Install.WantedBy = [ "timers.target" ];
+
+        Timer = {
+          # every minute
+          OnCalendar = "minutely";
+          Unit = "wallpaper-changer-gnome.service";
+          Persistent = true;
+        };
+      };
     };
   };
 }

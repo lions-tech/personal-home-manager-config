@@ -6,4 +6,6 @@ final: prev:
   dropbox = prev.callPackage ./pkgs/dropbox/default.nix { };
 
   dropbox-cli = prev.callPackage ./pkgs/dropbox/cli.nix { };
+
+  wallpapers = prev.callPackage ./pkgs/wallpapers { };
 }
