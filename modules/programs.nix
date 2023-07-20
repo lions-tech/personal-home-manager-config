@@ -171,9 +171,9 @@ in
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;
-      enableSyntaxHighlighting = true;
       autocd = true;
       defaultKeymap = "emacs";
+      syntaxHighlighting.enable = true;
       history = {
         ignoreDups = true;
         share = true;
