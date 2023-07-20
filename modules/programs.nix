@@ -158,6 +158,7 @@ in
         epkgs.python
         epkgs.rainbow-delimiters
         epkgs.rainbow-mode
+        epkgs.rust-mode
         epkgs.smartparens
         epkgs.spacemacs-theme
         epkgs.swiper
@@ -188,7 +189,6 @@ in
         theme = "candy";
       };
       initExtra = ''
-        alias emacs="emacs -nw"
         neofetch
       '';
       plugins = [
