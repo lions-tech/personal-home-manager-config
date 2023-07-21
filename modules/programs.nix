@@ -234,6 +234,14 @@ in
 
       "application/pdf" = "okularApplication_pdf.desktop";
       "application/epub+zip" = "okularApplication_epub.desktop";
+
+      "image/png" = "org.gnome.Shotwell-Viewer.desktop";
+      "image/gif" = "org.gnome.Shotwell-Viewer.desktop";
+      "image/jpeg" = "org.gnome.Shotwell-Viewer.desktop";
+      "image/svg+xml" = "org.gnome.Shotwell-Viewer.desktop";
+      "image/webp" = "org.gnome.Shotwell-Viewer.desktop";
+
+
     };
     associations.added = {
       "application/octet-stream" = "cisco-pt8.desktop.desktop";

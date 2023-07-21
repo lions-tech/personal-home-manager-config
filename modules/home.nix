@@ -13,6 +13,7 @@
       libreoffice
       neofetch
       nixpkgs-fmt
+      shotwell
       telegram-desktop
       virtualbox
       vivaldi
