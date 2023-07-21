@@ -20,9 +20,20 @@
       };
     in
     {
-      homeConfigurations."leonard" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = import ./modules;
+      homeConfigurations = {
+        "leonard" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = import ./modules/leonard;
+        };
+
+        "manuel" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = import ./modules/manuel;
+        };
       };
+
+      leonard = self.homeConfigurations."leonard".activationPackage;
+      manuel = self.homeConfigurations."manuel".activationPackage;
+      default = self.leonard;
     };
 }
