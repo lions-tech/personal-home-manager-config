@@ -3,7 +3,10 @@
 {
   services = {
     dropbox.enable = true;
-    flameshot.enable = true;
+    flameshot = {
+      enable = true;
+      settings.General.showStartupLaunchMessage = false;
+    };
     home-manager.autoUpgrade = {
       enable = true;
       frequency = "weekly";
