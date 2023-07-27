@@ -20,6 +20,7 @@
       };
     in
     {
+      # `home-manager switch` will automatically choose the correct user
       homeConfigurations = {
         "leonard" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -34,6 +35,5 @@
 
       leonard = self.homeConfigurations."leonard".activationPackage;
       manuel = self.homeConfigurations."manuel".activationPackage;
-      default = self.leonard;
     };
 }
