@@ -58,31 +58,25 @@ in
     emacs = {
       enable = true;
       extraConfig = ''
-        ;; basics
+        ;; --------------- basics ---------------
         (setq column-number-mode t)
         (global-display-line-numbers-mode)
         (load-theme 'spacemacs-dark t)
 
-        ;; get rid of the annoying welcome buffer
-        (defun startup-screen-advice (orig-fun &rest args)
-          (when (= (seq-count #'buffer-file-name (buffer-list)) 0)
-            (apply orig-fun args)))
-        (advice-add 'display-startup-screen :around #'startup-screen-advice)        
-
-        ;; window
+        ;; --------------- window ---------------
         (tool-bar-mode -1)
         (scroll-bar-mode -1)
         (menu-bar-mode -1)
         (toggle-frame-fullscreen)
 
-        ;; nix
-        (add-hook 'nix-mode-hook 'nixpkgs-fmt-on-save-mode (lambda ()
-          (setq standard-indent 2)
-          (setq tab-width 2)
-          (setq indent-tabs-mode nil))
-        )
+        ;; get rid of the annoying welcome buffer
+        (defun startup-screen-advice (orig-fun &rest args)
+          (when (= (seq-count #'buffer-file-name (buffer-list)) 0)
+            (apply orig-fun args)))
+        (advice-add 'display-startup-screen :around #'startup-screen-advice)
 
-        ;; minibuffer and editing behaviour
+
+        ;; --------------- editing and minibuffer ---------------
         (ivy-mode 1)
         (setq ivy-use-virtual-buffers t)
         (setq ivy-count-format "(%d/%d) ")
@@ -97,7 +91,13 @@ in
         (require 'multiple-cursors)
 
 
-        ;; programming specific settings
+        ;; --------------- programming settings ---------------
+        (add-hook 'nix-mode-hook 'nixpkgs-fmt-on-save-mode (lambda ()
+          (setq standard-indent 2)
+          (setq tab-width 2)
+          (setq indent-tabs-mode nil))
+        )
+
         (global-aggressive-indent-mode 1)
         (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
@@ -112,8 +112,10 @@ in
         ;; enable in all programming buffers
         (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
-        ;; keybindings
-        (global-set-key (kbd "C-x c l") 'mc/edit-lines)
+        ;; --------------- keybindings ---------------
+        (global-set-key (kbd "M-o") 'ace-window)
+
+        (global-set-key (kbd "C-x c e") 'mc/edit-lines)
         (global-set-key (kbd "C-x c n") 'mc/mark-next-like-this)
         (global-set-key (kbd "C-x c p") 'mc/mark-previous-like-this)
         (global-set-key (kbd "C-x c a") 'mc/mark-all-like-this)
@@ -154,6 +156,7 @@ in
       '';
       # to list available packages: nix-env -f '<nixpkgs>' -qaP -A emacsPackages
       extraPackages = epkgs: [
+        epkgs.ace-window
         epkgs.aggressive-indent
         epkgs.company
         epkgs.counsel
