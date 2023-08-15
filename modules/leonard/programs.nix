@@ -69,6 +69,9 @@ in
         (menu-bar-mode -1)
         (toggle-frame-fullscreen)
 
+        ;; ace-window keys
+        (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+
         ;; get rid of the annoying welcome buffer
         (defun startup-screen-advice (orig-fun &rest args)
           (when (= (seq-count #'buffer-file-name (buffer-list)) 0)
