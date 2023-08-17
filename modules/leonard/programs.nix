@@ -224,6 +224,7 @@ in
     };
 
     firefox.enable = true;
+    yt-dlp.enable = true;
   };
 
   xdg.mimeApps = {
