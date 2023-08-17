@@ -14,6 +14,7 @@
       libreoffice
       neofetch
       nixpkgs-fmt
+      prismlauncher
       shotwell
       telegram-desktop
       virtualbox
