@@ -11,7 +11,7 @@
       easytag
       gimp
       keepassxc
-      libreoffice
+      #libreoffice
       neofetch
       nixpkgs-fmt
       prismlauncher
