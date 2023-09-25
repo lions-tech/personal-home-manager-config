@@ -4,6 +4,11 @@ let
   defaultBrowsers = [ "vivaldi-stable.desktop" "firefox.desktop" ];
 in
 {
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
+
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
