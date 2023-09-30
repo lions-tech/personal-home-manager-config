@@ -39,9 +39,6 @@
         groupbar_gradients = false;
       };
 
-      touchpad = {
-        natural_scroll = "yes";
-      };
 
       # touchpad gestures
       gestures = {
@@ -53,6 +50,10 @@
         kb_layout = "de";
         follow_mouse = 1;
         accel_profile = "flat";
+
+        touchpad = {
+          natural_scroll = true;
+        };
       };
 
       monitor = [
