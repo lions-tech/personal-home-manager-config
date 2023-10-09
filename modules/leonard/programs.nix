@@ -166,6 +166,7 @@ in
       extraPackages = epkgs: [
         epkgs.ace-window
         epkgs.aggressive-indent
+        epkgs.auctex
         epkgs.company
         epkgs.counsel
         epkgs.dumb-jump
@@ -230,6 +231,11 @@ in
 
     firefox.enable = true;
     yt-dlp.enable = true;
+
+    texlive = {
+      enable = true;
+      extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
+    };
   };
 
   xdg.mimeApps = {
