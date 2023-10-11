@@ -22,6 +22,10 @@
       vivaldi
       vlc
 
+      fira
+      fira-mono
+      fira-code
+
       gnome.dconf-editor
       gnome.gnome-system-monitor
 
@@ -32,4 +36,7 @@
       EDITOR = "emacs -nw";
     };
   };
+
+  # discover fonts installed via home.packages
+  fonts.fontconfig.enable = true;
 }
