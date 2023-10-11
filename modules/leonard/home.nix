@@ -10,6 +10,7 @@
       ciscoPacketTracer8
       easytag
       gimp
+      inkscape
       keepassxc
       #libreoffice
       neofetch
