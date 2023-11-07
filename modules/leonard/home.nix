@@ -12,7 +12,7 @@
       gimp
       inkscape
       keepassxc
-      #libreoffice
+      libreoffice
       neofetch
       nixpkgs-fmt
       prismlauncher
