@@ -14,6 +14,7 @@
       keepassxc
       libreoffice
       neofetch
+      newsflash
       nixpkgs-fmt
       prismlauncher
       shotwell
