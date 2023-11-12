@@ -2,6 +2,7 @@
 
 {
 
+  imports = [ ./eww.nix ];
   programs.wofi.enable = true;
 
   # inspired by @fufexan and default config
