@@ -1,0 +1,135 @@
+{
+  home.sessionVariables.EDITOR = "emacs -nw";
+
+  # configure custom-safe-themes via HomeManager?
+  programs.emacs = {
+    enable = true;
+    extraConfig = ''
+      ;; --------------- basics ---------------
+      (setq column-number-mode t)
+      (global-display-line-numbers-mode)
+      (load-theme 'spacemacs-dark t)
+
+      ;; --------------- window ---------------
+      (tool-bar-mode -1)
+      (scroll-bar-mode -1)
+      (menu-bar-mode -1)
+      (toggle-frame-fullscreen)
+
+      ;; ace-window keys
+      (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+
+      ;; get rid of the annoying welcome buffer
+      (defun startup-screen-advice (orig-fun &rest args)
+        (when (= (seq-count #'buffer-file-name (buffer-list)) 0)
+          (apply orig-fun args)))
+      (advice-add 'display-startup-screen :around #'startup-screen-advice)
+
+
+      ;; --------------- editing and minibuffer ---------------
+      (ivy-mode 1)
+      (setq ivy-use-virtual-buffers t)
+      (setq ivy-count-format "(%d/%d) ")
+
+      (which-key-mode)
+      (which-key-setup-side-window-bottom)
+
+      (marginalia-mode)
+
+      (idle-highlight-global-mode)
+
+      (require 'multiple-cursors)
+
+
+      ;; --------------- programming settings ---------------
+      (add-hook 'nix-mode-hook 'nixpkgs-fmt-on-save-mode (lambda ()
+        (setq standard-indent 2)
+        (setq tab-width 2)
+        (setq indent-tabs-mode nil))
+      )
+
+      (global-aggressive-indent-mode 1)
+      (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
+
+      (require 'smartparens-config)
+      (smartparens-global-mode)
+
+      (add-hook 'after-init-hook 'global-company-mode)
+
+      (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+      (setq xref-show-definitions-function #'xref-show-definitions-completing-read)
+
+      ;; enable in all programming buffers
+      (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+      ;; --------------- keybindings ---------------
+      (global-set-key (kbd "M-o") 'ace-window)
+
+      (global-set-key (kbd "C-x c e") 'mc/edit-lines)
+      (global-set-key (kbd "C-x c n") 'mc/mark-next-like-this)
+      (global-set-key (kbd "C-x c p") 'mc/mark-previous-like-this)
+      (global-set-key (kbd "C-x c a") 'mc/mark-all-like-this)
+
+      (global-set-key (kbd "C-s") 'swiper-isearch)
+      (global-set-key (kbd "M-x") 'counsel-M-x)
+      (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+      (global-set-key (kbd "M-y") 'counsel-yank-pop)
+      (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+      (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+      (global-set-key (kbd "<f1> l") 'counsel-find-library)
+      (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+      (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+      (global-set-key (kbd "<f2> j") 'counsel-set-variable)
+      (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
+      (global-set-key (kbd "C-c v") 'ivy-push-view)
+      (global-set-key (kbd "C-c V") 'ivy-pop-view)
+
+      (global-set-key (kbd "C-c c") 'counsel-compile)
+      (global-set-key (kbd "C-c g") 'counsel-git)
+      (global-set-key (kbd "C-c j") 'counsel-git-grep)
+      (global-set-key (kbd "C-c L") 'counsel-git-log)
+      (global-set-key (kbd "C-c k") 'counsel-rg)
+      (global-set-key (kbd "C-c m") 'counsel-linux-app)
+      (global-set-key (kbd "C-c n") 'counsel-fzf)
+      (global-set-key (kbd "C-x l") 'counsel-locate)
+      (global-set-key (kbd "C-c J") 'counsel-file-jump)
+      (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+      (global-set-key (kbd "C-c w") 'counsel-wmctrl)
+
+      (global-set-key (kbd "C-c C-r") 'ivy-resume)
+      (global-set-key (kbd "C-c b") 'counsel-bookmark)
+      (global-set-key (kbd "C-c d") 'counsel-descbinds)
+      (global-set-key (kbd "C-c g") 'counsel-git)
+      (global-set-key (kbd "C-c o") 'counsel-outline)
+      (global-set-key (kbd "C-c t") 'counsel-load-theme)
+      (global-set-key (kbd "C-c F") 'counsel-org-file)
+    '';
+    # to list available packages: nix-env -f '<nixpkgs>' -qaP -A emacsPackages
+    extraPackages = epkgs: [
+      epkgs.ace-window
+      epkgs.aggressive-indent
+      epkgs.auctex
+      epkgs.company
+      epkgs.counsel
+      epkgs.dumb-jump
+      epkgs.idle-highlight-mode
+      epkgs.ivy
+      epkgs.magit
+      epkgs.marginalia
+      epkgs.markdown-mode
+      epkgs.multiple-cursors
+      epkgs.nix-mode
+      epkgs.nixpkgs-fmt
+      epkgs.org
+      epkgs.python
+      epkgs.rainbow-delimiters
+      epkgs.rainbow-mode
+      epkgs.rust-mode
+      epkgs.smartparens
+      epkgs.spacemacs-theme
+      epkgs.swiper
+      epkgs.typescript-mode
+      epkgs.which-key
+    ];
+  };
+}
