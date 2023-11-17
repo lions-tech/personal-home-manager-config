@@ -34,10 +34,6 @@
 
         # enable variable refresh rate (effective depending on hardware)
         vrr = 1;
-
-        # groupbar
-        groupbar_titles_font_size = 16;
-        groupbar_gradients = false;
       };
 
 
