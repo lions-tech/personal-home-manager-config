@@ -1,9 +1,12 @@
+{ pkgs, ... }:
+
 {
   home.sessionVariables.EDITOR = "emacs -nw";
 
   # configure custom-safe-themes via HomeManager?
   programs.emacs = {
     enable = true;
+    package = pkgs.emacs29;
     extraConfig = ''
       ;; --------------- basics ---------------
       (setq column-number-mode t)
