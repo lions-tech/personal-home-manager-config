@@ -7,10 +7,6 @@
       enable = true;
       settings.General.showStartupLaunchMessage = false;
     };
-    home-manager.autoUpgrade = {
-      enable = true;
-      frequency = "weekly";
-    };
   };
 
   systemd.user = {
