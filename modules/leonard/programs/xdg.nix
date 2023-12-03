@@ -2,6 +2,10 @@
   xdg.mimeApps =
     let
       defaultBrowsers = [ "vivaldi-stable.desktop" "firefox.desktop" ];
+      imageViewer = "org.gnome.Shotwell-Viewer.desktop";
+      pdfViewer = "okularApplication_pdf.desktop";
+      packet-tracer = "cisco-pt8.desktop.desktop";
+      telegram = "userapp-Telegram Desktop-GIH8E2.desktop";
     in
     {
       enable = true;
@@ -13,21 +17,24 @@
         "x-scheme-handler/http" = defaultBrowsers;
         "x-scheme-handler/https" = defaultBrowsers;
 
-        "application/octet-stream" = "cisco-pt8.desktop.desktop";
+        "application/octet-stream" = packet-tracer;
+        "x-scheme-handler/pttp" = packet-tracer;
 
-        "application/pdf" = "okularApplication_pdf.desktop";
-        "application/epub+zip" = "okularApplication_epub.desktop";
+        "application/pdf" = pdfViewer;
+        "application/epub+zip" = pdfViewer;
 
-        "image/png" = "org.gnome.Shotwell-Viewer.desktop";
-        "image/gif" = "org.gnome.Shotwell-Viewer.desktop";
-        "image/jpeg" = "org.gnome.Shotwell-Viewer.desktop";
-        "image/svg+xml" = "org.gnome.Shotwell-Viewer.desktop";
-        "image/webp" = "org.gnome.Shotwell-Viewer.desktop";
+        "image/png" = imageViewer;
+        "image/gif" = imageViewer;
+        "image/jpeg" = imageViewer;
+        "image/svg+xml" = imageViewer;
+        "image/webp" = imageViewer;
 
-
+        "x-scheme-handler/tg" = telegram;
       };
       associations.added = {
-        "application/octet-stream" = "cisco-pt8.desktop.desktop";
+        "x-scheme-handler/pttp" = packet-tracer;
+        "application/octet-stream" = packet-tracer;
+        "x-scheme-handler/tg" = telegram;
       };
     };
 }
