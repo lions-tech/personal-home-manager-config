@@ -12,6 +12,8 @@
     settings = {
       "$mod" = "SUPER";
 
+      exec-once = "${pkgs.swww}/bin/swww init";
+
       env = [
         "_JAVA_AWT_WM_NONREPARENTING,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
