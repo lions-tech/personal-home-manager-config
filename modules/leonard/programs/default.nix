@@ -26,6 +26,7 @@
   };
 
   home.packages = with pkgs; [
+    aspell
     audacious
     ciscoPacketTracer8
     easytag
@@ -45,6 +46,11 @@
     vivaldi
     vlc
     zip
+
+    aspellDicts.de
+    aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
 
     gnome.dconf-editor
     gnome.gnome-system-monitor
