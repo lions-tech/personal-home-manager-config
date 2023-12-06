@@ -8,6 +8,6 @@
       st = "status";
       amend = "commit --amend --no-edit";
     };
-    ignores = [ "nohup.out" "*~" "#*" ];
+    ignores = [ "nohup.out" "*~" "\#*\#" ];
   };
 }
