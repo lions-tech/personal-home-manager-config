@@ -13,6 +13,11 @@
       (global-display-line-numbers-mode)
       (load-theme 'spacemacs-dark t)
 
+      ;; projectile
+      (setq projectile-project-search-path '("~/devel/"))
+      (setq projectile-completion-system 'ivy)
+      (projectile-mode 1)
+
       ;; --------------- window ---------------
       (tool-bar-mode -1)
       (scroll-bar-mode -1)
@@ -66,6 +71,9 @@
       (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
       ;; --------------- keybindings ---------------
+      (with-eval-after-load 'projectile
+        (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+
       (global-set-key (kbd "M-o") 'ace-window)
 
       (global-set-key (kbd "C-x c e") 'mc/edit-lines)
@@ -124,6 +132,7 @@
       epkgs.nix-mode
       epkgs.nixpkgs-fmt
       epkgs.org
+      epkgs.projectile
       epkgs.python
       epkgs.rainbow-delimiters
       epkgs.rainbow-mode
