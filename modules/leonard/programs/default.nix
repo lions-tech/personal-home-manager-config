@@ -35,9 +35,11 @@
     prismlauncher
     shotwell
     telegram-desktop
+    unzip
     virtualbox
     vivaldi
     vlc
+    zip
 
     gnome.dconf-editor
     gnome.gnome-system-monitor
