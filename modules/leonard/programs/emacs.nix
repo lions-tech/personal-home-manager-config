@@ -87,6 +87,11 @@
         (setq sh-basic-offset 2))
       )
 
+      ;; plantuml
+      (setq plantuml-executable-path "${pkgs.plantuml}/bin/plantuml")
+      (setq plantuml-jar-path "${pkgs.plantuml}/lib/plantuml.jar")
+      (setq plantuml-default-exec-mode 'executable) ;; possible values: 'jar 'executable 'server
+
       (global-aggressive-indent-mode 1)
       (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
@@ -165,6 +170,7 @@
       epkgs.nix-mode
       epkgs.nixpkgs-fmt
       epkgs.org
+      epkgs.plantuml-mode
       epkgs.projectile
       epkgs.python
       epkgs.rainbow-delimiters
