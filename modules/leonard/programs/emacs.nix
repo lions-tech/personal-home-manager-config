@@ -11,7 +11,7 @@
       ;; --------------- basics ---------------
       (setq column-number-mode t)
       (global-display-line-numbers-mode)
-      (load-theme 'spacemacs-dark t)
+      (load-theme 'spacemacs-light t)
 
       ;; projectile
       (setq projectile-project-search-path '("~/devel/"))
