@@ -73,10 +73,18 @@
 
 
       ;; --------------- programming settings ---------------
+      ;; nix
       (add-hook 'nix-mode-hook 'nixpkgs-fmt-on-save-mode (lambda ()
         (setq standard-indent 2)
         (setq tab-width 2)
         (setq indent-tabs-mode nil))
+      )
+
+      ;; shell
+      (add-hook 'sh-mode-hook (lambda ()
+        (setq standard-indent 2)
+        (setq tab-width 2)
+        (setq sh-basic-offset 2))
       )
 
       (global-aggressive-indent-mode 1)
