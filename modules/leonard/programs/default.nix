@@ -30,6 +30,7 @@
     audacious
     ciscoPacketTracer8
     easytag
+    fd
     gimp
     inkscape
     keepassxc
