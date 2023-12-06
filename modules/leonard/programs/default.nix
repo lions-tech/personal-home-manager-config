@@ -4,6 +4,7 @@
   imports = [
     ./emacs.nix
     ./git.nix
+    ./pandoc.nix
     ./terminator.nix
     ./texlive.nix
     ./zsh.nix
