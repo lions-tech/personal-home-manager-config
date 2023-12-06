@@ -9,6 +9,7 @@
     ./ripgrep.nix
     ./terminator.nix
     ./texlive.nix
+    ./zoxide.nix
     ./zsh.nix
 
     ./xdg.nix
