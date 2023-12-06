@@ -6,6 +6,7 @@
     ./git.nix
     ./java.nix
     ./pandoc.nix
+    ./ripgrep.nix
     ./terminator.nix
     ./texlive.nix
     ./zsh.nix
