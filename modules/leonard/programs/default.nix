@@ -34,6 +34,7 @@
     neofetch
     newsflash
     nixpkgs-fmt
+    plantuml
     prismlauncher
     shotwell
     telegram-desktop
