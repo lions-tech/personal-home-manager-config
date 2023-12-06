@@ -106,6 +106,8 @@
       ;; enable in all programming buffers
       (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
+      (setq-default indent-tabs-mode nil)
+
       ;; --------------- keybindings ---------------
       (with-eval-after-load 'projectile
         (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
