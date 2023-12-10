@@ -38,6 +38,7 @@
     neofetch
     newsflash
     nixpkgs-fmt
+    nodejs
     plantuml
     prismlauncher
     shotwell
