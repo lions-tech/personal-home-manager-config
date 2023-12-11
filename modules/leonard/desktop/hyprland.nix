@@ -46,7 +46,8 @@
       };
 
       input = {
-        kb_layout = "de";
+        kb_layout = "de,ru";
+        kb_options = "grp:win_space_toggle";
         follow_mouse = 1;
         accel_profile = "flat";
 
