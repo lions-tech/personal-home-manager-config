@@ -128,7 +128,7 @@
         "$mod, mouse_up, workspace, e-1"
 
         "$mod, P, exec, wofi --show drun"
-        "$mod SHIFT, RETURN, exec, terminator"
+        "$mod SHIFT, RETURN, exec, foot"
       ]
       # binds mod + [shift +] {1..10} to [move to] ws {1..10}
       ++ (builtins.genList

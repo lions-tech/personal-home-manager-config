@@ -3,11 +3,11 @@
 {
   imports = [
     ./emacs.nix
+    ./foot.nix
     ./git.nix
     ./java.nix
     ./pandoc.nix
     ./ripgrep.nix
-    ./terminator.nix
     ./texlive.nix
     ./zoxide.nix
     ./zsh.nix
