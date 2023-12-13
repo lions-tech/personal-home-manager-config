@@ -9,6 +9,7 @@
     ./pandoc.nix
     ./ripgrep.nix
     ./texlive.nix
+    ./zettlr
     ./zoxide.nix
     ./zsh.nix
 
