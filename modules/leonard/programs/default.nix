@@ -42,6 +42,7 @@
     plantuml
     prismlauncher
     shotwell
+    swaylock-effects
     telegram-desktop
     unzip
     virtualbox
