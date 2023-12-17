@@ -22,7 +22,6 @@
         exec-once = [
           "${pkgs.swww}/bin/swww init"
           "${config.systemd.user.services.swww-wallpaper-changer.Service.ExecStart}"
-          "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         ];
 
         env = [
