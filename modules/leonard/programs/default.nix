@@ -30,6 +30,7 @@
     aspell
     audacious
     ciscoPacketTracer8
+    dbeaver
     easytag
     fd
     gimp
