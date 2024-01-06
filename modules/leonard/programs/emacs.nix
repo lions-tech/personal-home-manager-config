@@ -172,6 +172,7 @@
       epkgs.nix-mode
       epkgs.nixpkgs-fmt
       epkgs.org
+      epkgs.php-mode
       epkgs.plantuml-mode
       epkgs.projectile
       epkgs.python
