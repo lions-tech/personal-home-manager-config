@@ -1,5 +1,6 @@
 [
   ./home.nix
-  ./programs.nix
+  ./programs
   ./services.nix
+  ./fonts.nix
 ] ++ (import ./desktop)

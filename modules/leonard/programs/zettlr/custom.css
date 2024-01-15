@@ -1,0 +1,48 @@
+/* Enter your custom CSS here */
+
+:root {
+    --c-primary: #118bee;
+    --c-primary-shade: #ebf5fe;
+    --selection-light: #b9dbf9;
+    --active-brightness: 0.85;
+    --hover-brightness: 1.2;
+    --border-radius: 5px;
+    --color-text-secondary: #999;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+body .main-editor-wrapper .cm-editor {
+    color: #000;
+}
+
+.main-editor-wrapper .cm-editor .code,
+.cm-monospace {
+    background-color: var(--c-primary-shade);
+    color: #000;
+    border-radius: var(--border-radius);
+    margin: 0 0.1rem;
+    padding: 0 0.5rem;
+}
+
+.ͼ1 .cm-line {
+     padding: 0.2rem 0;
+}
+
+/* Links */
+a {
+    color: var(--c-primary);
+    font-weight: bold !important;
+    text-decoration: underline;
+}
+
+a:active {
+    filter: brightness(var(--active-brightness));
+}
+
+a:hover {
+    filter: brightness(var(--hover-brightness));
+}
+

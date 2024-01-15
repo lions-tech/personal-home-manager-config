@@ -1,7 +1,4 @@
 # My home-manager configuration
-This is my personal home-manager configuration.
-See it as an example of how to do certain things with home-manager.
-You might want to checkout the fixed packages in `pkgs/`.
 
 ## Bootstrapping
 Be sure to be in a graphical environment and run these commands:
@@ -15,3 +12,14 @@ home-manager switch
 # before starting the systemd user services
 dropbox start
 ```
+
+## Resources
+
+These are the repos I've learned and copied from.
+
+Thank You!
+
+- [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
+- [saimoomedits/eww-widgets](https://github.com/saimoomedits/eww-widgets)
+- [EliverLara/terminator-themes](https://github.com/EliverLara/terminator-themes/tree/master/schemes)
+
