@@ -1,0 +1,59 @@
+#!/bin/sh
+workspaces() {
+
+ws1="1"
+ws2="2"
+ws3="3"
+ws4="4"
+ws5="5"
+ws6="6"
+ws7="7"
+ws8="8"
+ws9="9"
+ws10="0"
+
+# Unoccupied
+un="0"
+
+# check if Occupied
+o1=$(hyprctl workspaces -j | jq 'map(select(.id | contains(1))) | .[] | .windows > 0')
+o2=$(hyprctl workspaces -j | jq 'map(select(.id | contains(2))) | .[] | .windows > 0')
+o3=$(hyprctl workspaces -j | jq 'map(select(.id | contains(3))) | .[] | .windows > 0')
+o4=$(hyprctl workspaces -j | jq 'map(select(.id | contains(4))) | .[] | .windows > 0')
+o5=$(hyprctl workspaces -j | jq 'map(select(.id | contains(5))) | .[] | .windows > 0')
+o6=$(hyprctl workspaces -j | jq 'map(select(.id | contains(6))) | .[] | .windows > 0')
+o7=$(hyprctl workspaces -j | jq 'map(select(.id | contains(7))) | .[] | .windows > 0')
+o8=$(hyprctl workspaces -j | jq 'map(select(.id | contains(8))) | .[] | .windows > 0')
+o9=$(hyprctl workspaces -j | jq 'map(select(.id | contains(9))) | .[] | .windows > 0')
+o10=$(hyprctl workspaces -j | jq 'map(select(.id | contains(10))) | .[] | .windows > 0')
+
+# check if Focused
+focusedWs=$(hyprctl activeworkspace -j | jq '.id')
+
+ic_1=""
+ic_2=""
+ic_3=""
+ic_4=""
+ic_5=""
+ic_6=""
+if [ $f1 ]; then
+    ic_1=""
+elif [ $f2 ]; then
+    ic_2=""
+elif [ $f3 ]; then
+    ic_3=""
+elif [ $f4 ]; then
+    ic_4=""
+elif [ $f5 ]; then
+    ic_5=""
+elif [ $f6 ]; then
+    ic_6=""
+fi
+
+echo 	"(box	:class \"works\"	:orientation \"h\" :spacing 5 :space-evenly \"false\" (button :onclick \"bspc desktop -f $ws1\"	:class	\"$un$o1$f1\"	\"$ic_1\") (button :onclick \"bspc desktop -f $ws2\"	:class \"$un$o2$f2\"	 \"$ic_2\") (button :onclick \"bspc desktop -f $ws3\"	:class \"$un$o3$f3\" \"$ic_3\") (button :onclick \"bspc desktop -f $ws4\"	:class \"$un$o4$f4\"	\"$ic_4\") (button :onclick \"bspc desktop -f $ws5\"	:class \"$un$o5$f5\" \"$ic_5\")  (button :onclick \"bspc desktop -f $ws6\"	:class \"$un$o6$f6\" \"$ic_6\"))"
+
+}
+workspaces
+bspc subscribe desktop node_transfer | while read -r _ ; do
+workspaces
+done

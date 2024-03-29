@@ -1,7 +1,7 @@
 final: prev:
 
 {
-  ciscoPacketTracer8 = prev.callPackage ./pkgs/ciscoPacketTracer8 { };
+  #ciscoPacketTracer8 = prev.callPackage ./pkgs/ciscoPacketTracer8 { };
 
   dropbox = prev.callPackage ./pkgs/dropbox/default.nix { };
 

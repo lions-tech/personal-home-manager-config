@@ -1,4 +1,5 @@
 {
+  # TODO: Can't we get the names of the desktop files from the derivations?
   xdg.mimeApps =
     let
       defaultBrowsers = [ "vivaldi-stable.desktop" "firefox.desktop" ];

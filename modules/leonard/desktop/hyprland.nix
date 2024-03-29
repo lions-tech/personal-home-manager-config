@@ -20,8 +20,7 @@
         "$mod" = "SUPER";
 
         exec-once = [
-          "${pkgs.swww}/bin/swww init"
-          "${config.systemd.user.services.swww-wallpaper-changer.Service.ExecStart}"
+          "(${pkgs.swww}/bin/swww init && ${config.systemd.user.services.swww-wallpaper-changer.Service.ExecStart}) 2>&1 > ~/.hyprland/swww.log"
         ];
 
         env = [

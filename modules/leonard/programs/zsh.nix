@@ -3,7 +3,7 @@
 {
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     autocd = true;
     defaultKeymap = "emacs";
@@ -20,11 +20,8 @@
         "web-search"
         "dirhistory"
       ];
-      theme = "candy";
+      theme = "dpoggi";
     };
-    initExtra = ''
-      neofetch
-    '';
     plugins = [
       {
         name = "cmdtime";

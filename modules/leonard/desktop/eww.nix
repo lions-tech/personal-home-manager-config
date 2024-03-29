@@ -3,7 +3,15 @@
 {
   programs.eww = {
     enable = true;
-    package = pkgs.eww-wayland;
-    configDir = ./eww/bar;
+    package = pkgs.eww;
+    configDir = ./eww;
   };
+
+  home.packages = with pkgs; [
+    pamixer
+    alsa-utils
+    brightnessctl
+    networkmanager_dmenu
+    jq
+  ];
 }

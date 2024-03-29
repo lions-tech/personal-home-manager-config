@@ -1,21 +1,28 @@
 { pkgs, ... }:
 
 {
+  # TODO: Merge esg config
   imports = [
+    ./bat.nix
+    ./direnv.nix
     ./emacs.nix
+    ./eza.nix
     ./foot.nix
+    ./fzf.nix
     ./git.nix
     ./java.nix
+    #./obs-studio.nix
     ./pandoc.nix
     ./ripgrep.nix
-    ./texlive.nix
+    #./texlive.nix
+    ./tmux.nix
     ./zettlr
     ./zoxide.nix
     ./zsh.nix
 
     ./xdg.nix
 
-    ./nix.nix
+    #./nix.nix - normally system-wide configured
   ];
 
   programs = {
@@ -30,19 +37,22 @@
     aspell
     audacious
     ciscoPacketTracer8
-    dbeaver
+    cherrytree
+    dbeaver-bin
     easytag
     fd
     gimp
     inkscape
     keepassxc
     libreoffice
-    neofetch
+    libxml2
     newsflash
+    nix-inspect
     nixpkgs-fmt
     nodejs
     plantuml
     prismlauncher
+    qalculate-qt
     shotwell
     swaylock-effects
     telegram-desktop
@@ -57,8 +67,8 @@
     aspellDicts.en-computers
     aspellDicts.en-science
 
-    gnome.dconf-editor
-    gnome.gnome-system-monitor
+    dconf-editor
+    gnome-system-monitor
 
     libsForQt5.okular
   ];
