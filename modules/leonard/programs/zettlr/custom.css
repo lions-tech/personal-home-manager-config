@@ -18,6 +18,8 @@ body .main-editor-wrapper .cm-editor {
     color: #000;
 }
 
+code,
+samp,
 .main-editor-wrapper .cm-editor .code,
 .cm-monospace {
     background-color: var(--c-primary-shade);
