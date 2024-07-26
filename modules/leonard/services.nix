@@ -2,9 +2,11 @@
 
 {
   services = {
-    dropbox.enable = true;
+    # TODO: currently not working
+    dropbox.enable = false;
+    # TODO: not working on Hyprland
     flameshot = {
-      enable = true;
+      enable = false;
       settings.General.showStartupLaunchMessage = false;
     };
   };
@@ -24,12 +26,14 @@
       ];
 
       # Keep in mind: This does not update flake inputs
+      # TODO: We disabled this - right?
       home-manager-auto-upgrade.Service.ExecStart = lib.mkForce (toString
         (pkgs.writeShellScript "home-manager-upgrade-script" ''
           ${pkgs.home-manager}/bin/home-manager switch --flake 'github:lions-tech/personal-home-manager-config#leonard'
         '')
       );
 
+      # TODO: Remove when gnome is thrown out of system config
       wallpaper-changer-gnome = {
         Unit.Description = "Change wallpaper on GNOME";
         Service.ExecStart = toString (pkgs.writeShellScript "wallpaper-changer-gnome-script" ''

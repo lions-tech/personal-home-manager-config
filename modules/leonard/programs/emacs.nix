@@ -11,7 +11,13 @@
       ;; --------------- basics ---------------
       (setq column-number-mode t)
       (global-display-line-numbers-mode)
-      (load-theme 'spacemacs-light t)
+      (load-theme 'solarized-selenized-light t)
+
+      ;; get rid of the annoying welcome buffer
+      (defun startup-screen-advice (orig-fun &rest args)
+        (when (= (seq-count #'buffer-file-name (buffer-list)) 0)
+          (apply orig-fun args)))
+      (advice-add 'display-startup-screen :around #'startup-screen-advice)
 
       ;; projectile
       (setq projectile-project-search-path '("~/devel/"))
@@ -50,12 +56,6 @@
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
 
-      ;; get rid of the annoying welcome buffer
-      (defun startup-screen-advice (orig-fun &rest args)
-        (when (= (seq-count #'buffer-file-name (buffer-list)) 0)
-          (apply orig-fun args)))
-      (advice-add 'display-startup-screen :around #'startup-screen-advice)
-
 
       ;; --------------- editing and minibuffer ---------------
       (ivy-mode 1)
@@ -73,12 +73,21 @@
 
 
       ;; --------------- programming settings ---------------
+      ;; LSP servers
+      (setq lsp-keymap-prefix "s-i")
+      (setq lsp-nix-nil-server-path "${pkgs.nil}/bin/nil")
+      (require 'lsp-mode)
+
+      ;; magit
+      (add-hook 'magit-mode-hook (lambda () (magit-delta-mode +1)))
+
       ;; nix
       (add-hook 'nix-mode-hook 'nixpkgs-fmt-on-save-mode (lambda ()
         (setq standard-indent 2)
         (setq tab-width 2)
         (setq indent-tabs-mode nil))
       )
+      (add-hook 'nix-mode-hook #'lsp-deferred)
 
       ;; shell
       (add-hook 'sh-mode-hook (lambda ()
@@ -108,7 +117,21 @@
 
       (setq-default indent-tabs-mode nil)
 
+      ;; --------------- text editing ---------------
+      (defun enable-auto-fill ()
+        "Activate auto-fill-mode and display-fill-column-indicator-mode"
+        (interactive)
+        (auto-fill-mode)
+        (display-fill-column-indicator-mode)
+      )
+      (setq-default fill-column 100)
+
       ;; --------------- keybindings ---------------
+      (with-eval-after-load 'lsp-ui-mode
+        (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+        (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+      )
+
       (with-eval-after-load 'projectile
         (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
@@ -154,6 +177,8 @@
       (global-set-key (kbd "C-c o") 'counsel-outline)
       (global-set-key (kbd "C-c t") 'counsel-load-theme)
       (global-set-key (kbd "C-c F") 'counsel-org-file)
+
+      (global-set-key (kbd "C-c q") 'enable-auto-fill)
     '';
     # to list available packages: nix-env -f '<nixpkgs>' -qaP -A emacsPackages
     extraPackages = epkgs: [
@@ -163,9 +188,15 @@
       epkgs.company
       epkgs.counsel
       epkgs.dumb-jump
+      epkgs.flycheck
       epkgs.idle-highlight-mode
       epkgs.ivy
+      epkgs.lsp-mode
+      epkgs.lsp-ivy
+      epkgs.lsp-treemacs
+      epkgs.lsp-ui
       epkgs.magit
+      epkgs.magit-delta
       epkgs.marginalia
       epkgs.markdown-mode
       epkgs.multiple-cursors
@@ -180,10 +211,11 @@
       epkgs.rainbow-mode
       epkgs.rust-mode
       epkgs.smartparens
-      epkgs.spacemacs-theme
+      epkgs.solarized-theme
       epkgs.swiper
       epkgs.typescript-mode
       epkgs.which-key
+      epkgs.yasnippet
     ];
   };
 }

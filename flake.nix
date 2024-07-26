@@ -7,7 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # TODO: contribute fixes to nixpkgs and home-manager
   };
 
   outputs = { self, nixpkgs, home-manager }:
@@ -20,20 +19,13 @@
       };
     in
     {
-      # `home-manager switch` will automatically choose the correct user
       homeConfigurations = {
+        # TODO: nix-ld-rs - might fix VirtualBox
         "leonard" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = import ./modules/leonard;
         };
-
-        "manuel" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = import ./modules/manuel;
-        };
       };
-
       leonard = self.homeConfigurations."leonard".activationPackage;
-      manuel = self.homeConfigurations."manuel".activationPackage;
     };
 }
