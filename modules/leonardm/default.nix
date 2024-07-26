@@ -1,0 +1,4 @@
+[
+  ./home.nix
+  ./programs.nix
+]

@@ -1,7 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
-  home.sessionVariables.EDITOR = "emacs -nw";
+  home = {
+    shellAliases.emacs = "emacs -nw";
+    sessionVariables.EDITOR = "emacs -nw";
+  };
 
   # configure custom-safe-themes via HomeManager?
   programs.emacs = {
@@ -130,7 +133,7 @@
       (with-eval-after-load 'lsp-ui-mode
         (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
         (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
-      )
+        )
 
       (with-eval-after-load 'projectile
         (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
@@ -179,6 +182,14 @@
       (global-set-key (kbd "C-c F") 'counsel-org-file)
 
       (global-set-key (kbd "C-c q") 'enable-auto-fill)
+
+      ;; --------------- MacOS ---------------
+      (when (eq system-type 'darwin)
+        (add-hook 'window-setup-hook 'toggle-frame-maximized t)
+        (setq mac-right-option-modifier 'none)
+        (setq magit-git-executable "${pkgs.git}/bin/git")
+        (add-to-list 'exec-path "${config.home.profileDirectory}/bin")
+      )
     '';
     # to list available packages: nix-env -f '<nixpkgs>' -qaP -A emacsPackages
     extraPackages = epkgs: [
