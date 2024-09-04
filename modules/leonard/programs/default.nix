@@ -14,6 +14,7 @@
     #./obs-studio.nix
     ./pandoc.nix
     ./ripgrep.nix
+    ./syncthing.nix
     #./texlive.nix
     ./tmux.nix
     ./zettlr
