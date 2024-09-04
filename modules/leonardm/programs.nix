@@ -15,10 +15,21 @@
 
   ];
 
+
   programs = {
     home-manager.enable = true;
+    zsh = {
+      profileExtra = builtins.readFile ./.zprofile;
+      initExtra = ''
+        # Make sure nix is available (this is persistent over upgrades)
+        if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+          . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+        fi
+      '';
+    };
   };
 
+  # TODO: https://github.com/sbmpost/AutoRaise
   home.packages = with pkgs; [
     aspell
     cherrytree
@@ -31,8 +42,10 @@
     nix-inspect
     nixpkgs-fmt
     plantuml
-    telegram-desktop
-    utm
+    #telegram-desktop - video view not working well
+    #utm - broken, when creating kali 2024.2 ARM VM efi_vars.fd is readonly and VM crashes
+    #      chmod u+w prevents the crash, but non-graphical install is not
+    #      possible due to black screen
     #vivaldi - unsupported system
     #vlc - unsupported system
 
@@ -41,4 +54,18 @@
     aspellDicts.en-computers
     aspellDicts.en-science
   ];
+
+  /*
+   * PACKAGES INSTALLED WITHOUT home-manager
+   *
+   * ---------------------------------------
+   * - Cisco PacketTracer (manual)
+   * - homebrew (manual)
+   * - UTM (brew)
+   * - Vivaldi (brew)
+   * - Pixea (AppStore)
+   * - telegram (brew)
+   * - Kindle (AppStore)
+   */
 }
+
