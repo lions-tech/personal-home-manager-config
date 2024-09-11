@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   imports = [
@@ -9,10 +9,10 @@
     ../leonard/programs/fzf.nix
     ../leonard/programs/git.nix
     ../leonard/programs/ripgrep.nix
+    ../leonard/programs/syncthing.nix
     ../leonard/programs/tmux.nix
     ../leonard/programs/zoxide.nix
     ../leonard/programs/zsh.nix
-
   ];
 
 
@@ -28,6 +28,10 @@
       '';
     };
   };
+
+  services.syncthing.extraOptions = lib.mkForce [
+    "--home=${config.home.homeDirectory}/.config/syncthing"
+  ];
 
   # TODO: https://github.com/sbmpost/AutoRaise
   home.packages = with pkgs; [
