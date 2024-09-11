@@ -48,6 +48,7 @@
     #      possible due to black screen
     #vivaldi - unsupported system
     #vlc - unsupported system
+    wireguard-tools
 
     aspellDicts.de
     aspellDicts.en
@@ -66,6 +67,7 @@
    * - Pixea (AppStore)
    * - telegram (brew)
    * - Kindle (AppStore)
+   * - foxitreader (brew)
    */
 }
 
