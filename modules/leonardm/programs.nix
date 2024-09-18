@@ -47,6 +47,7 @@
     nixpkgs-fmt
     plantuml
     #telegram-desktop - video view not working well
+    texmacs
     #utm - broken, when creating kali 2024.2 ARM VM efi_vars.fd is readonly and VM crashes
     #      chmod u+w prevents the crash, but non-graphical install is not
     #      possible due to black screen
@@ -66,8 +67,8 @@
    * ---------------------------------------
    * - Cisco PacketTracer (manual)
    * - homebrew (manual)
-   * - UTM (brew)
-   * - Vivaldi (brew)
+   * - utm (brew)
+   * - vivaldi (brew)
    * - Pixea (AppStore)
    * - telegram (brew)
    * - Kindle (AppStore)
