@@ -8,6 +8,7 @@
     ../leonard/programs/eza.nix
     ../leonard/programs/fzf.nix
     ../leonard/programs/git.nix
+    ../leonard/programs/pandoc.nix
     ../leonard/programs/ripgrep.nix
     ../leonard/programs/syncthing.nix
     ../leonard/programs/tmux.nix
@@ -35,6 +36,7 @@
 
   # TODO: https://github.com/sbmpost/AutoRaise
   home.packages = with pkgs; [
+    android-tools
     aspell
     cherrytree
     easytag
@@ -73,6 +75,7 @@
    * - telegram (brew)
    * - Kindle (AppStore)
    * - foxitreader (brew)
+   * - libreoffice (brew)
    */
 }
 

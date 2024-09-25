@@ -56,6 +56,7 @@
     shotwell
     swaylock-effects
     telegram-desktop
+    texmacs
     unzip
     virtualbox
     vivaldi
